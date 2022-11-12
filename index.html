@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+  <title>ceaseless's virtual piano.</title>
+  <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap');
+/* each white note is 73px apart */
+/* each black note is 85px apart */
+* {
+  border-box:none;
+  text-align:center;
+  font-family:Roboto;
+}
+.center {
+  position:absolute;
+  left:33.3%;
+}
+#cs4 {
+  position:absolute;
+  display:flex;
+  height: 200px;
+  width:50px;
+  background-color: black;
+  border: 4px solid #262626;
+  background-image: linear-gradient(black, #363636);
+  z-index:1;
+  top:100px;
+  left:45px;
+  box-shadow: 2px 2px 35px 10px #bfbfbf;
+  transform-style: preserve-3d;
+}
+#cs4:active {
+  display:flex;
+  border: 4px solid #363636;
+  background-image: linear-gradient(#000000, #4d4d4d);
+  order:1;
+}
+#c4 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 2;
+  top:100px;
+  left:7px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  transform-style: preserve-3d;
+}
+#c4:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#d4 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:80px;
+}
+#d4:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#ef4 {
+  position:absolute;
+  display:flex;
+  height: 200px;
+  width:50px;
+  background-color: black;
+  border: 4px solid #262626;
+  background-image: linear-gradient(black, #363636);
+  z-index:1;
+  top:100px;
+  left:125px;
+  box-shadow: 2px 2px 35px 10px #bfbfbf;
+}
+#ef4:active {
+  display:flex;
+  border: 4px solid #363636;
+  background-image: linear-gradient(#000000, #4d4d4d);
+  order:1;
+}
+#e4 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:152px;
+}
+#e4:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#f4 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:225px;
+}
+#f4:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#fs4 {
+  position:absolute;
+  display:flex;
+  height: 200px;
+  width:50px;
+  background-color: black;
+  border: 4px solid #262626;
+  background-image: linear-gradient(black, #363636);
+  z-index:1;
+  top:100px;
+  left:263px;
+  box-shadow: 2px 2px 35px 10px #bfbfbf;
+}
+#fs4:active {
+  display:flex;
+  border: 4px solid #363636;
+  background-image: linear-gradient(#000000, #4d4d4d);
+  order:1;
+}
+#g4 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:298px;
+}
+#g4:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#af4 {
+  position:absolute;
+  display:flex;
+  height: 200px;
+  width:50px;
+  background-color: black;
+  border: 4px solid #262626;
+  background-image: linear-gradient(black, #363636);
+  z-index:1;
+  top:100px;
+  left:340px;
+  box-shadow: 2px 2px 35px 10px #bfbfbf;
+}
+#af4:active {
+  display:flex;
+  border: 4px solid #363636;
+  background-image: linear-gradient(#000000, #4d4d4d);
+  order:1;
+}
+#a4 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:371px;
+}
+#a4:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#bb4 {
+  position:absolute;
+  display:flex;
+  height: 200px;
+  width:50px;
+  background-color: black;
+  border: 4px solid #262626;
+  background-image: linear-gradient(black, #363636);
+  z-index:1;
+  top:100px;
+  left:420px;
+  box-shadow: 2px 2px 35px 10px #bfbfbf;
+}
+#bb4:active {
+  display:flex;
+  border: 4px solid #363636;
+  background-image: linear-gradient(#000000, #4d4d4d);
+  order:1;
+}
+#b4 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:444px;
+}
+#b4:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#c5 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:517px;
+}
+#c5:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#d5 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:590px;
+}
+#d5:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#e5 {
+  display:flex;
+  position:absolute;
+  height: 400px;
+  width:60px;
+  background-color: whitesmoke;
+  border: 4px solid #bfbfbf;
+  background-image: linear-gradient(whitesmoke, #bfbfbf);
+  order: 4;
+  top:100px;
+  box-shadow: 2px 2px 35px 10px #cccccc;
+  left:663px;
+}
+#e5:active {
+  background-image: linear-gradient(#bfbfbf, #cccccc);
+}
+#cs5 {
+  position:absolute;
+  display:flex;
+  height: 200px;
+  width:50px;
+  background-color: black;
+  border: 4px solid #262626;
+  background-image: linear-gradient(black, #363636);
+  z-index:1;
+  top:100px;
+  left:558px;
+  box-shadow: 2px 2px 35px 10px #bfbfbf;
+}
+#cs5:active {
+  display:flex;
+  border: 4px solid #363636;
+  background-image: linear-gradient(#000000, #4d4d4d);
+  order:1;
+}
+#ef5 {
+  position:absolute;
+  display:flex;
+  height: 200px;
+  width:50px;
+  background-color: black;
+  border: 4px solid #262626;
+  background-image: linear-gradient(black, #363636);
+  z-index:1;
+  top:100px;
+  left:638px;
+  box-shadow: 2px 2px 35px 10px #bfbfbf;
+}
+#ef5:active {
+  display:flex;
+  border: 4px solid #363636;
+  background-image: linear-gradient(#000000, #4d4d4d);
+  order:1;
+}
+#redLine {
+  position:absolute;
+  top:93.3px;
+  background-color:red;
+  width:730px;
+  height:10px;
+  z-index:3;
+}
+#noteSpace {
+  position:absolute;
+  top:-100px;
+  background-color:black;
+  width:730px;
+  height:200px;
+  z-index:3;
+}
+</style>
+</head>
+<body>
+
+<h1 style="float:left;">VIRTUAL PIANO</h1>
+<p style="float:left;color:red;">*might not be responsive for mobile</p>
+
+<br><h4 style="writing-mode: vertical-rl;float:right;">virtual piano by ceaseless</h4>
+<div class="center">
+  <div id="noteSpace"></div>
+  <div id="redLine"></div>
+
+  <div id="c4" onclick="notec4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:20px;">C4</p></div> <!-- note c octave 4 !-->
+  <div id="cs4" onclick="notecs4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">C#</p></div> <!-- note c sharp ! octave 4-->
+  <div id="d4" onclick="noted4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">D</p></div> <!-- note d octave 4 !-->
+  <div id="ef4" onclick="noteef4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Eb</p></div> <!-- note e flat octave 4 !-->
+  <div id="e4" onclick="notee4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">E</p></div> <!-- note e octave 4 !-->
+  <div id="f4" onclick="notef4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">F</p></div> <!-- note f octave 4 !-->
+  <div id="fs4" onclick="notefs4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">F#</p></div> <!-- note f sharp octave 4 !-->
+  <div id="g4" onclick="noteg4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">G</p></div> <!-- note g octave 4 !-->
+  <div id="af4" onclick="noteaf4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Ab</p></div> <!-- note a flat octave 4 !-->
+  <div id="a4" onclick="notea4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">A</p></div> <!-- note a octave 4 !-->
+  <div id="bb4" onclick="notebb4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Bb</p></div> <!-- note b flat octave 4 !-->
+  <div id="b4" onclick="noteb4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">B</p></div> <!-- note b octave 4 !-->
+  <div id="c5" onclick="notec5()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:20px;">C5</p></div> <!-- note c octave 5 !-->
+  <div id="cs5" onclick="notecs5()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">C#</p></div> <!-- note c sharp octave 5 !-->
+  <div id="d5" onclick="noted5()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">E</p></div> <!-- note d octave 5 !-->
+  <div id="ef5" onclick="noteef5()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Eb</p></div> <!-- note e flat octave 5 !-->
+  <div id="e5" onclick="notee5()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">E</p></div> <!-- note e octave 5 !-->
+</div>
+<script>
+//c
+function notec4() {
+  var notec4play = new Audio('c4.mp3');
+  notec4play.play();
+}
+//c sharp
+function notecs4() {
+  var notecs4play = new Audio('cs4.mp3');
+  notecs4play.play();
+}
+//d
+function noted4() {
+  var noted4play = new Audio('d4.mp3');
+  noted4play.play();
+}
+//e flat
+function noteef4() {
+  var noteef4play = new Audio('ef4.mp3');
+  noteef4play.play();
+}
+//e
+function notee4() {
+  var notee4play = new Audio('e4.mp3');
+  notee4play.play();
+}
+//f
+function notef4() {
+  var notef4play = new Audio('f4.mp3');
+  notef4play.play();
+}
+//f sharp
+function notefs4() {
+  var notefs4play = new Audio('fs4.mp3');
+  notefs4play.play();
+}
+//g
+function noteg4() {
+  var noteg4play = new Audio('g4.mp3');
+  noteg4play.play();
+}
+//a flat
+function noteaf4() {
+  var noteaf4play = new Audio('af4.mp3');
+  noteaf4play.play();
+}
+//a
+function notea4() {
+  var notea4play = new Audio('a4.mp3');
+  notea4play.play();
+}
+//b flat
+function notebb4() {
+  var notebb4play = new Audio('bb4.mp3');
+  notebb4play.play();
+}
+function noteb4() {
+  var noteb4play = new Audio('b4.mp3');
+  noteb4play.play();
+}
+//c octave 5
+function notec5() {
+  var notec5play = new Audio('c5.mp3');
+  notec5play.play();
+}
+//d octave 5
+function noted5() {
+  var noted5play = new Audio('d5.mp3');
+  noted5play.play();
+}
+//e octave 5
+function notee5() {
+  var notee5play = new Audio('e5.mp3');
+  notee5play.play();
+}
+//c sharp octave 5
+function notecs5() {
+  var notecs5play = new Audio('cs5.mp3');
+  notecs5play.play();
+}
+//e flat octave 5
+function noteef5() {
+  var noteef5play = new Audio('ef5.mp3');
+  noteef5play.play();
+}
+</script>
+</body>
+</html>
+
+
