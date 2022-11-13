@@ -6,13 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto:ital,wght@0,900;1,900&display=swap');
 /* each white note is 73px apart */
 /* each black note is 85px apart */
 * {
   border-box:none;
   text-align:center;
-  font-family:Roboto;
+  font-family: 'Josefin Sans', sans-serif;
+}
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: black;
+}
+
+::selection {
+  color: white;
+  background: black;
 }
 .center {
   position:absolute;
@@ -329,6 +338,15 @@
   height:200px;
   z-index:3;
 }
+#bottomLine {
+  position:absolute;
+  background-color:black;
+  width:100%;
+  height:100px;
+  bottom:0;
+  left:0;
+  right:0;
+}
 </style>
 </head>
 <body>
@@ -344,21 +362,31 @@
   <div id="c4" onclick="notec4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:20px;">C4</p></div> <!-- note c octave 4 !-->
   <div id="cs4" onclick="notecs4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">C#</p></div> <!-- note c sharp ! octave 4-->
   <div id="d4" onclick="noted4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">D</p></div> <!-- note d octave 4 !-->
-  <div id="ef4" onclick="noteef4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Eb</p></div> <!-- note e flat octave 4 !-->
+  <div id="ef4" onclick="noteef4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">E♭</p></div> <!-- note e flat octave 4 !-->
   <div id="e4" onclick="notee4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">E</p></div> <!-- note e octave 4 !-->
   <div id="f4" onclick="notef4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">F</p></div> <!-- note f octave 4 !-->
   <div id="fs4" onclick="notefs4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">F#</p></div> <!-- note f sharp octave 4 !-->
   <div id="g4" onclick="noteg4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">G</p></div> <!-- note g octave 4 !-->
-  <div id="af4" onclick="noteaf4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Ab</p></div> <!-- note a flat octave 4 !-->
+  <div id="af4" onclick="noteaf4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">A♭</p></div> <!-- note a flat octave 4 !-->
   <div id="a4" onclick="notea4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">A</p></div> <!-- note a octave 4 !-->
-  <div id="bb4" onclick="notebb4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Bb</p></div> <!-- note b flat octave 4 !-->
+  <div id="bb4" onclick="notebb4()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">B♭</p></div> <!-- note b flat octave 4 !-->
   <div id="b4" onclick="noteb4()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">B</p></div> <!-- note b octave 4 !-->
   <div id="c5" onclick="notec5()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:20px;">C5</p></div> <!-- note c octave 5 !-->
   <div id="cs5" onclick="notecs5()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">C#</p></div> <!-- note c sharp octave 5 !-->
   <div id="d5" onclick="noted5()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">E</p></div> <!-- note d octave 5 !-->
-  <div id="ef5" onclick="noteef5()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">Eb</p></div> <!-- note e flat octave 5 !-->
+  <div id="ef5" onclick="noteef5()" class="notesCenter"><p style="position:relative;top:157px;user-select: none;left:15px;color:whitesmoke;">E♭</p></div> <!-- note e flat octave 5 !-->
   <div id="e5" onclick="notee5()" class="notesCenter"><p style="position:relative;top:347px;user-select: none;left:25px;">E</p></div> <!-- note e octave 5 !-->
 </div>
+
+  <h1 style="position:absolute;top:550px;text-align:center;left:45%;">CHANGES MADE:</h1>
+  <p style="position:absolute;top:600px;text-align:center;left:49%;">changed note names</p>
+  <p style="position:absolute;top:625px;text-align:center;left:49%;">changed font</p>
+  <p style="position:absolute;top:650px;text-align:center;left:49%;">added this!!</p>
+  <p style="position:absolute;top:675px;text-align:center;left:49%;">added bottom strip</p>
+  <br>
+  <h3 style="position:absolute;top:30px;right:90px;text-align:center;">VIEW THE SOURCE CODE ON GITHUB:</h3>
+  <a href="https://github.com/612Software/virtual-piano" style="position:absolute;right:240px;top:85px;text-align:center;">source code</a>
+<div id="bottomLine"></div>
 <script>
 //c
 function notec4() {
